@@ -1,7 +1,11 @@
 # Gradle
 .gradle/
 build/
+gradle/
 */build/
+gradlew
+gradle.properties
+gradlew.bat
 
 # Local configuration files
 local.properties
@@ -26,8 +30,9 @@ captures/
 # Kotlin
 .kotlin/
 *.kotlin_module
-*.kts
+#*.kts
 out/
+
 
 # Generated files
 gen/
@@ -61,5 +66,10 @@ gradle-wrapper.properties
 
 # Google Services (Firebase)
 google-services.json
+app/proguard-rules.pro
+app/src/androidTest/
+#app/src/main/java/com/interactme/
+app/src/main/res/
+app/src/test
 
 README.md

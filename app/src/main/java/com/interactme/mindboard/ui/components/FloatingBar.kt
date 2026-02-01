@@ -16,6 +16,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -24,10 +25,11 @@ import io.github.fletchmckee.liquid.LiquidState
 @Composable
 fun BoxScope.FloatingBar(
     onAddClick: () -> Unit,
-    radius: Dp = 25.dp,
     liquidState: LiquidState,
+    isGlassEnabled: Boolean,
+    radius: Dp = 25.dp,
     offsetY: Dp = (-100).dp,
-    offsetX: Dp = (-12).dp,
+    offsetX: Dp = (-8).dp,
 ) {
     Surface(
         color = Color.Transparent,
@@ -38,7 +40,9 @@ fun BoxScope.FloatingBar(
             .offset(y = offsetY, x = offsetX)
     ) {
         Box(
-            modifier = Modifier.glass(liquidState, RoundedCornerShape(radius), frost = 10.dp),
+            modifier = Modifier
+                .clip(RoundedCornerShape(radius))
+                .glass(liquidState, RoundedCornerShape(radius), isGlassEnabled, frost = 10.dp),
             contentAlignment = Alignment.Center
         ) {
             Row(

@@ -1,5 +1,6 @@
 package com.interactme.mindboard.ui.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -11,6 +12,7 @@ import io.github.fletchmckee.liquid.liquid
 fun Modifier.glass(
     liquidState: LiquidState,
     cornerRadius: RoundedCornerShape,
+    enabled: Boolean,
 
     frost: Dp = 0.dp,
     tint: Color = Color.White.copy(alpha = 0.05f),
@@ -20,6 +22,8 @@ fun Modifier.glass(
     saturation: Float = 1f,
     dispersion: Float = 0.25f
 ): Modifier {
+    if (!enabled) return this.background(Color(0xFF2C2C2C))
+
     return this.liquid(liquidState) {
         this.frost = frost
         this.refraction = refraction

@@ -3,6 +3,7 @@ package com.interactme.mindboard
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import com.interactme.mindboard.contract.UiEffectsViewModel
 import com.interactme.mindboard.domain.repository.IdeaRepository
 import com.interactme.mindboard.ui.navigation.AppNavHost
 import com.interactme.mindboard.viewmodel.AddIdeaViewModel
@@ -16,14 +17,12 @@ class MainActivity : ComponentActivity() {
         val database = (application as MindBoardApp).database
         val repository = IdeaRepository(database.ideaDao())
 
-        val viewModel = IdeaViewModel(repository)
+        val ideaViewModel = IdeaViewModel(repository)
         val addIdeaViewModel = AddIdeaViewModel(repository)
+        val uiEffectsViewModel = UiEffectsViewModel()
 
         setContent {
-            AppNavHost(
-                viewModel = viewModel,
-                addIdeaViewModel = addIdeaViewModel
-            )
+            AppNavHost(ideaViewModel, addIdeaViewModel, uiEffectsViewModel)
         }
     }
 }

@@ -25,6 +25,7 @@ import io.github.fletchmckee.liquid.LiquidState
 @Composable
 fun BoxScope.BottomAppBar(
     onAddClick: () -> Unit,
+    isGlassEnabled: Boolean,
     dp: Dp = 25.dp,
     liquidState: LiquidState,
     onHeightMeasured: (Int) -> Unit = {},
@@ -33,7 +34,7 @@ fun BoxScope.BottomAppBar(
         containerColor = Color.Transparent,
         modifier = Modifier
             .fillMaxWidth()
-            .glass(liquidState, RoundedCornerShape(dp))
+            .glass(liquidState, RoundedCornerShape(dp), isGlassEnabled)
             .onGloballyPositioned { onHeightMeasured(it.size.height) }
             .align(Alignment.BottomCenter),
     ) {

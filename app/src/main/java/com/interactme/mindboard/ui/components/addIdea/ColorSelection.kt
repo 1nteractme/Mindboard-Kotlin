@@ -9,21 +9,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.interactme.mindboard.ui.theme.MindBoardTheme
 
-val cardColors = listOf(
-    Color(0xFFEEEEEE),
-    Color(0xFFCDB4DB),
-    Color(0xFFFFAFCC),
-    Color(0xFFFFC8DD),
-    Color(0xFFBDE0FE),
-    Color(0xFFA2D2FF),
-    Color(0xFFA2FFAD),
-)
+@Composable
+private fun ideaCardColors(): List<Color> = MindBoardTheme.colors.ideaPalette
 
 @Composable
 fun ColorSelectionWidget(selectedColor: Color, onColorSelected: (Color) -> Unit) {
     ColorSelectionGrid(
-        colors = cardColors,
+        colors = ideaCardColors(),
         selectedColor = selectedColor,
         onColorSelected = onColorSelected
     )

@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.interactme.mindboard.ui.components.CustomText
+import com.interactme.mindboard.ui.theme.MindBoardTheme
 
 @Composable
 fun ImagePicker(
@@ -46,12 +47,12 @@ fun ImagePicker(
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(25.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF1F1F1F),
-                    contentColor = Color.White
+                    containerColor = MindBoardTheme.colors.appBg,
+                    contentColor = MindBoardTheme.colors.white
                 ),
                 elevation = ButtonDefaults.buttonElevation(0.dp)
             ) {
-                CustomText("Add Image", Color(0xFFEEEEEE), 16.sp)
+                CustomText("Add Image", MindBoardTheme.colors.textLight, 16.sp)
             }
         }
     }

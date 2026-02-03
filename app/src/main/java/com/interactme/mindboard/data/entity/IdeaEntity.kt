@@ -12,4 +12,5 @@ data class IdeaEntity(
     val createdAt: Long,
     val collectionId: Long? = null,
     val imageUri: String? = null,
+    val isFavorite: Boolean = false,
 )

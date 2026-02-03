@@ -14,6 +14,14 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.interactme.mindboard.ui.components.CustomText
+import com.interactme.mindboard.ui.components.CollectionChip
+import com.interactme.mindboard.domain.model.Group
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.PaddingValues
+import com.interactme.mindboard.ui.theme.MindBoardTheme
 
 @Composable
 fun AddIdeaForm(
@@ -24,6 +32,9 @@ fun AddIdeaForm(
     selectedColor: Color,
     onColorSelected: (Color) -> Unit,
     imagePicker: @Composable () -> Unit,
+    groups: List<Group>,
+    selectedGroupIds: Set<String>,
+    onGroupSelected: (String, Boolean) -> Unit,
     isAddEnabled: Boolean,
     padding: Dp,
     onSave: () -> Unit,
@@ -55,9 +66,34 @@ fun AddIdeaForm(
 
         ColorSelectionWidget(selectedColor = selectedColor, onColorSelected = onColorSelected)
 
+        if (groups.isNotEmpty()) {
+            CustomText(
+                title = "Groups",
+                titleColor = MindBoardTheme.colors.textPrimary,
+                fontSize = 16.sp,
+            )
+
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                contentPadding = PaddingValues(end = 12.dp)
+            ) {
+                items(groups, key = { it.id }) { group ->
+                    val selected = selectedGroupIds.contains(group.id)
+                    CollectionChip(
+                        name = group.name,
+                        color = Color(group.color.toInt()),
+                        selected = selected,
+                        onClick = { onGroupSelected(group.id, !selected) }
+                    )
+                }
+            }
+        } else {
+            Box(modifier = Modifier.height(4.dp))
+        }
+
         val buttonColors = ButtonDefaults.buttonColors(
             containerColor = selectedColor,
-            disabledContainerColor = Color(0xFF1F1F1F),
+            disabledContainerColor = MindBoardTheme.colors.appBg,
         )
 
         Button(
@@ -69,7 +105,7 @@ fun AddIdeaForm(
         ) {
             CustomText(
                 "Add Idea",
-                if (isAddEnabled) Color(0xFF1F1F1F) else Color(0xFF888888),
+                if (isAddEnabled) MindBoardTheme.colors.textPrimary else MindBoardTheme.colors.textMuted,
                 16.sp
             )
         }

@@ -25,5 +25,3 @@ fun TopAppBar(liquidState: LiquidState, isGlassEnabled: Boolean, title: String =
         colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
     )
 }
-
-// TODO: MAYBE_ADD_A_BIT_BACKGROUND_DARK_TINT?

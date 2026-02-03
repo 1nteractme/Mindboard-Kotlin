@@ -21,7 +21,7 @@ interface IdeaDao {
     fun search(query: String): Flow<List<IdeaEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(entity: IdeaEntity)
+    suspend fun insert(entity: IdeaEntity): Long
 
     @Update
     suspend fun update(entity: IdeaEntity)

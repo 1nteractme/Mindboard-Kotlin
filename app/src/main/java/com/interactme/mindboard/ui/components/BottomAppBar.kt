@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.interactme.mindboard.ui.theme.MindBoardTheme
 import io.github.fletchmckee.liquid.LiquidState
 
 
@@ -44,8 +45,8 @@ fun BoxScope.BottomAppBar(
         ) {
             FloatingActionButton(
                 onClick = onAddClick,
-                containerColor = Color.White,
-                contentColor = Color.Black,
+                containerColor = MindBoardTheme.colors.white,
+                contentColor = MindBoardTheme.colors.black,
                 modifier = Modifier.padding(8.dp)
             ) {
                 Icon(

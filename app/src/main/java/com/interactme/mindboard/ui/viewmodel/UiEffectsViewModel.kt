@@ -1,13 +1,10 @@
-package com.interactme.mindboard.contract
+package com.interactme.mindboard.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
+import com.interactme.mindboard.ui.contract.UiEffectsState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-
-data class UiEffectsState(
-    val isGlassEnabled: Boolean = false
-)
 
 class UiEffectsViewModel : ViewModel() {
     private val _state = MutableStateFlow(UiEffectsState())

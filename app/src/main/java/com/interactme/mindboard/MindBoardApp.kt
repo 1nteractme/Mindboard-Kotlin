@@ -1,19 +1,14 @@
 package com.interactme.mindboard
 
 import android.app.Application
-import androidx.room.Room
-import com.interactme.mindboard.data.database.AppDatabase
+import com.interactme.mindboard.di.AppContainer
 
 class MindBoardApp : Application() {
-    lateinit var database: AppDatabase
+    lateinit var container: AppContainer
         private set
 
     override fun onCreate() {
         super.onCreate()
-        database = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java,
-            "mindboard_db"
-        ).build()
+        container = AppContainer(applicationContext)
     }
 }

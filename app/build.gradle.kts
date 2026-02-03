@@ -71,6 +71,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.9.6")
     implementation(platform("androidx.compose:compose-bom:2026.01.00"))
     implementation("com.google.accompanist:accompanist-navigation-animation:0.36.0")
+    implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.room:room-runtime:2.8.4")
     kapt("androidx.room:room-compiler:2.8.4")
     implementation("androidx.room:room-ktx:2.8.4")

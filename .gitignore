@@ -1,75 +1,53 @@
-# Gradle
+# Built application files
+*.apk
+*.aab
+*.ap_
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+
+# Gradle files
 .gradle/
 build/
-gradle/
 */build/
-gradlew
-gradle.properties
-gradlew.bat
+**/build/
 
-# Local configuration files
+# Local configuration
 local.properties
-*.iml
-*.hprof
 
-.DS_Store
-
-# Android Studio
+# Android Studio / IntelliJ
 .idea/
+*.iml
+*.ipr
+*.iws
 captures/
 *.log
-*.apk
-*.ap_
-*.aab
-*.dex
-*.class
-*.jar
-*.keystore
-*.jks
+*.hprof
+.DS_Store
 
 # Kotlin
 .kotlin/
 *.kotlin_module
-#*.kts
-out/
 
-
-# Generated files
-gen/
-bin/
-tmp/
+# NDK
 .cxx/
+.externalNativeBuild/
 
-# IntelliJ
-*.ipr
-*.iws
-.idea/
-
-# Jetpack Compose / Kotlin Multiplatform
-buildSrc/build/
-.kotlinc/
-.compose/
-
-# Misc
-.DS_Store
-*.swp
-*.swo
-*.orig
-
-# Android/Gradle wrapper
-gradle-wrapper.jar
-gradle-wrapper.properties
-
-# Signing configs
+# Keystore
 *.keystore
 *.jks
 
-# Google Services (Firebase)
+# Google Services
 google-services.json
-app/proguard-rules.pro
-app/src/androidTest/
-#app/src/main/java/com/interactme/
-app/src/main/res/
-app/src/test
 
+#Readme
+*.md
 README.md

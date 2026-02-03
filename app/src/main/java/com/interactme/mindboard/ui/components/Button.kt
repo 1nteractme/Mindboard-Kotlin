@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import com.interactme.mindboard.ui.theme.MindBoardTheme
 
 @Composable
 fun CustomButton(onClick: () -> Unit, icon: ImageVector) {
@@ -18,7 +19,10 @@ fun CustomButton(onClick: () -> Unit, icon: ImageVector) {
             pressedElevation = 0.dp,
             focusedElevation = 0.dp,
             hoveredElevation = 0.dp
-        ), onClick = onClick, containerColor = Color.White, contentColor = Color.Black
+        ),
+        onClick = onClick,
+        containerColor = MindBoardTheme.colors.white,
+        contentColor = MindBoardTheme.colors.black
     ) {
         Icon(
             imageVector = icon,

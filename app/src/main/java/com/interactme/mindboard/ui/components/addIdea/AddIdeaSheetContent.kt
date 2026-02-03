@@ -8,12 +8,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.interactme.mindboard.contract.AddIdeaUiEvent
-import com.interactme.mindboard.viewmodel.AddIdeaViewModel
+import com.interactme.mindboard.ui.contract.AddIdeaUiEvent
+import com.interactme.mindboard.ui.viewmodel.AddIdeaViewModel
 
 @Composable
 fun AddIdeaSheetContent(viewModel: AddIdeaViewModel) {
     val uiState by viewModel.uiState.collectAsState()
+    val groups by viewModel.groups.collectAsState()
 
     val context = LocalContext.current
 
@@ -55,6 +56,12 @@ fun AddIdeaSheetContent(viewModel: AddIdeaViewModel) {
                 onPickImage = { imagePickerLauncher.launch(arrayOf("image/*")) },
                 onRemoveImage = { viewModel.onEvent(AddIdeaUiEvent.RemoveImage) }
             )
+        },
+
+        groups = groups,
+        selectedGroupIds = uiState.selectedGroupIds,
+        onGroupSelected = { groupId, isSelected ->
+            viewModel.onEvent(AddIdeaUiEvent.GroupSelected(groupId, isSelected))
         },
 
         isAddEnabled = uiState.isAddEnabled,

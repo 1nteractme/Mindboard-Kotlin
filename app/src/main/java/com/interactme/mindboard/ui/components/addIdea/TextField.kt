@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.interactme.mindboard.ui.components.CustomText
+import com.interactme.mindboard.ui.theme.MindBoardTheme
 
 @Composable
 fun CustomTextField(
@@ -30,20 +31,20 @@ fun CustomTextField(
         singleLine = singleLine,
         maxLines = maxLines,
         textStyle = LocalTextStyle.current.copy(
-            color = Color.White,
+            color = MindBoardTheme.colors.white,
             fontSize = 16.sp
         ),
-        cursorBrush = SolidColor(Color.White),
+        cursorBrush = SolidColor(MindBoardTheme.colors.white),
         decorationBox = { innerTextField ->
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(25.dp))
-                    .background(Color(0xFF1F1F1F))
+                    .background(MindBoardTheme.colors.appBg)
                     .padding(horizontal = 16.dp, vertical = 12.dp)
             ) {
                 if (value.isEmpty()) {
-                    CustomText(label, Color(0xFFEEEEEE), 16.sp)
+                    CustomText(label, MindBoardTheme.colors.textLight, 16.sp)
                 }
                 innerTextField()
             }

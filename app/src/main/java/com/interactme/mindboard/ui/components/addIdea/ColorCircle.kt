@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.interactme.mindboard.ui.theme.MindBoardTheme
 
 @Composable
 fun ColorCircle(
@@ -31,7 +32,11 @@ fun ColorCircle(
             .background(color)
             .then(
                 if (isSelected) {
-                    Modifier.border(width = 2.dp, color = Color(0xFF1F1F1F), shape = CircleShape)
+                    Modifier.border(
+                        width = 2.dp,
+                        color = MindBoardTheme.colors.textPrimary,
+                        shape = CircleShape
+                    )
                 } else {
                     Modifier
                 }
@@ -41,7 +46,7 @@ fun ColorCircle(
             Icon(
                 imageVector = Icons.Rounded.Check,
                 contentDescription = "Selected",
-                tint = Color(0xFF1F1F1F),
+                tint = MindBoardTheme.colors.textPrimary,
                 modifier = Modifier.size(24.dp),
             )
         }

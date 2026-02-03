@@ -12,6 +12,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.MoreHoriz
+import androidx.compose.material.icons.rounded.Star
+import androidx.compose.material.icons.rounded.StarBorder
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -26,7 +28,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.interactme.mindboard.domain.model.Idea
-import com.interactme.mindboard.viewmodel.IdeaViewModel
+import com.interactme.mindboard.ui.theme.MindBoardTheme
+import com.interactme.mindboard.ui.viewmodel.IdeaViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -76,21 +79,39 @@ fun IdeaCard(
                         title = item.title,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.W900,
-                        titleColor = Color.Black.copy(alpha = 0.8f)
+                        titleColor = MindBoardTheme.colors.black.copy(alpha = 0.8f)
                     )
 
                     CustomText(
                         title = item.description,
                         fontSize = 16.sp,
-                        titleColor = Color.Black.copy(alpha = 0.8f)
+                        titleColor = MindBoardTheme.colors.black.copy(alpha = 0.8f)
                     )
 
                     CustomText(
                         title = formatDate(item.createdAt),
                         fontSize = 12.sp,
-                        titleColor = Color.Black.copy(alpha = 0.6f)
+                        titleColor = MindBoardTheme.colors.black.copy(alpha = 0.6f)
                     )
                 }
+            }
+
+            Box(
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(8.dp)
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(MindBoardTheme.colors.white.copy(alpha = 0.7f))
+                    .clickable { viewModel.toggleFavorite(item.id) }
+                    .padding(6.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = if (item.isFavorite) Icons.Rounded.Star else Icons.Rounded.StarBorder,
+                    contentDescription = "Favorite",
+                    tint = MindBoardTheme.colors.textPrimary,
+                    modifier = Modifier.size(18.dp)
+                )
             }
         }
 
@@ -107,7 +128,7 @@ fun IdeaCard(
                 modifier = Modifier
                     .size(24.dp)
                     .align(Alignment.Center),
-                tint = Color.Black.copy(alpha = 0.8f)
+                tint = MindBoardTheme.colors.black.copy(alpha = 0.8f)
             )
         }
     }

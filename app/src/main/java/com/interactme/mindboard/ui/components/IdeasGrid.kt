@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.interactme.mindboard.domain.model.Idea
-import com.interactme.mindboard.viewmodel.IdeaViewModel
+import com.interactme.mindboard.ui.viewmodel.IdeaViewModel
 
 @Composable
 fun IdeasGrid(

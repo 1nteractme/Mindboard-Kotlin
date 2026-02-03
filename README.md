@@ -25,8 +25,8 @@
 ## Roadmap
 - [x] Edit and delete idea cards
 - [x] Add images to ideas
+- [x] Collections & groups
 - [ ] Search and filter ideas 
 - [ ] Cloud sync 
 - [ ] Firebase integration 
 - [ ] AI-generated ideas 
-- [ ] Collections & groups

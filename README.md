@@ -1,5 +1,10 @@
 # MindBoard
 
+<div align="left">
+    <img align="center" src="https://img.shields.io/badge/Kotlin-7F52FF?logo=kotlin&logoColor=white&style=for-the-badge" alt="Kotlin"/>
+    <img align="center" src="https://komarev.com/ghpvc/?username=1nteractme-Mindboard-Kotlin&color=7f52ff&style=for-the-badge&abbreviated=true&label=PROJECT+VIEWS" alt="Project Views"/>
+</div>
+
 ## Features
     - Create, edit, and delete idea cards
     - Add images to ideas

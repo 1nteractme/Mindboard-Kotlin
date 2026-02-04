@@ -5,6 +5,10 @@
     <img align="center" src="https://komarev.com/ghpvc/?username=1nteractme-Mindboard-Kotlin&color=7f52ff&style=for-the-badge&abbreviated=true&label=PROJECT+VIEWS" alt="Project Views"/>
 </div>
 
+## About 
+
+MindBoard is an Android application for storing and visually organizing ideas
+
 ## Features
     - Create, edit, and delete idea cards
     - Add images to ideas
